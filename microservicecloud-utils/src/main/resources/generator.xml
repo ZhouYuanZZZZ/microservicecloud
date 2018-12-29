@@ -20,7 +20,7 @@
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.1.142:32768/hr?characterEncoding=utf-8"
+                        connectionURL="jdbc:mysql://192.168.31.194:32769/hr?characterEncoding=utf-8"
                         userId="root"
                         password="root">
         </jdbcConnection>
@@ -37,8 +37,8 @@
         </javaTypeResolver>
 
         <!-- targetProject:生成PO类的位置 -->
-        <javaModelGenerator targetPackage="com.zy.spring.entity"
-                            targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.zy.microservicecloud.entity"
+                            targetProject="C:\develop\code\microservicecloud\microservicecloud-api\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
             <!-- 从数据库返回的值被清理前后的空格 -->
@@ -46,16 +46,16 @@
         </javaModelGenerator>
 
         <!-- targetProject:mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="com.zy.spring.mapper"
-                         targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="com.zy.microservicecloud.mapper"
+                         targetProject="C:\develop\code\microservicecloud\microservicecloud-provider\src\main\resources">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
         
         <!-- targetPackage：mapper接口生成的位置 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.zy.spring.mapper"
-                             targetProject="src/main/java">
+                             targetPackage="com.zy.microservicecloud.mapper"
+                             targetProject="C:\develop\code\microservicecloud\microservicecloud-provider\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
@@ -73,7 +73,7 @@
         </table> -->
 
 
-        <table tableName="employees"
+        <table tableName="EMPLOYEES"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
