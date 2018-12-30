@@ -24,9 +24,12 @@ public class DataController {
     }
 
     @RequestMapping(value = "/getEmployeeById", produces = "application/json;charset=UTF-8")
-    public String getEmployeeById(Integer id) {
+    public String getEmployeeById(Integer id) throws InterruptedException {
 
         List<Employees> employees = dataTransferService.getEmployeeById(id);
+        if(employees.size() == 0){
+            Thread.sleep(3000);
+        }
 
         return JSON.toJSONString(employees);
     }

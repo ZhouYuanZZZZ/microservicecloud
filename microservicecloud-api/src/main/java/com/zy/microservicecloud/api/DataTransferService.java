@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(value = "service0")
+@FeignClient(value = "service0",fallbackFactory = DataTransferServiceFallbackFactory.class)
 public interface DataTransferService {
 
     @RequestMapping(value = "/getEmployees")
