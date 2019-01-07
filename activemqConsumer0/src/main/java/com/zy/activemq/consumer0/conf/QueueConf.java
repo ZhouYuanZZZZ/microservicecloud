@@ -16,7 +16,7 @@ public class QueueConf {
 
     @Bean
     public ActiveMQQueue queue0(){
-        ActiveMQQueue queue0 = new ActiveMQQueue("queue0");
+        ActiveMQQueue queue0 = new ActiveMQQueue("queue01");
         return queue0;
     }
 
