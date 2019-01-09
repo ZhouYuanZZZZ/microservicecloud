@@ -16,16 +16,10 @@ public class QueueConf {
 
     @Bean
     public ActiveMQQueue queue0(){
-        ActiveMQQueue queue0 = new ActiveMQQueue("queue01");
+        ActiveMQQueue queue0 = new ActiveMQQueue("queue01?consumer.prefetchSize=1");
+
         return queue0;
     }
 
-    @Bean
-    public DefaultMessageListenerContainer container(MessageListener0 messageListener0, Destination queue0, SingleConnectionFactory connectionFactory){
-        DefaultMessageListenerContainer defaultMessageListenerContainer = new DefaultMessageListenerContainer();
-        defaultMessageListenerContainer.setDestination(queue0);
-        defaultMessageListenerContainer.setConnectionFactory(connectionFactory);
-        defaultMessageListenerContainer.setMessageListener(messageListener0);
-        return defaultMessageListenerContainer;
-    }
+
 }

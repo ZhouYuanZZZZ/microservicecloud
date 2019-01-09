@@ -28,8 +28,8 @@ public class ProductorService {
     @Resource
     private MessageCreator0 messageCreator0;
 
-    //@Scheduled(cron = "0/1 * * * * ? ")
-    @PostConstruct
+    @Scheduled(cron = "0/1 * * * * ? ")
+    //@PostConstruct
     public void test0() throws JMSException {
         Connection connection = connectionFactory.createConnection();
 

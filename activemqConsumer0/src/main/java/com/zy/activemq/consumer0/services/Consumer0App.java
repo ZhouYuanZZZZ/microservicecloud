@@ -25,7 +25,8 @@ public class Consumer0App  {
     @PostConstruct
     public void test0() throws JMSException {
         Connection connection = connectionFactory.createConnection();
-        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        connection.start();
+        Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 
         MessageConsumer consumer = session.createConsumer(queue0);
 
@@ -35,14 +36,31 @@ public class Consumer0App  {
                 TextMessage textMessage = (TextMessage)message;
                 try {
                     String text = textMessage.getText();
-                    logger.info(text);
+                    logger.info("consumer0"+text);
 
-                    throw new RuntimeException("xxx");
-                    //message.acknowledge();
+                    message.acknowledge();
                 } catch (JMSException e) {
                     e.printStackTrace();
                 }
             }
         });
+
+        MessageConsumer consumer1 = session.createConsumer(queue0);
+
+        consumer1.setMessageListener(new MessageListener() {
+            @Override
+            public void onMessage(Message message) {
+                TextMessage textMessage = (TextMessage)message;
+                try {
+                    String text = textMessage.getText();
+                    logger.info("consumer1"+text);
+
+                    message.acknowledge();
+                } catch (JMSException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 }
