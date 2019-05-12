@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    #是否将自己注册到eureka
+    register-with-eureka: true
+    #是否从eurreka server中获取信息
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8081/eureka/
+
+  server:
+    enable-self-preservation: true
+
+  instance:
+    instance-id: eureka0_instance_id
+
+spring:
+  application:
+    name: eureka
+
+
+
+info:
+ phone: 18049638730
+ email: zy1270157082@outlook.com

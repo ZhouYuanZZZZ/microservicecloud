@@ -1,13 +1,10 @@
-package com.zy.microservicecloud.api;
+package com.zy.springcloud.microservicecloudfeign.api;
 
-import com.zy.microservicecloud.entity.Employees;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.zy.springcloud.microservicecloudfeign.entity.Employees;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class DataTransferServiceHandler implements DataTransferService {
 

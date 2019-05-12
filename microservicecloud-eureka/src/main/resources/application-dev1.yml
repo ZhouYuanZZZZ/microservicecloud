@@ -1,26 +1,26 @@
 server:
-  port: 8080
+  port: 8081
 
 eureka:
   client:
     #是否将自己注册到eureka
-    register-with-eureka: false
+    register-with-eureka: true
     #是否从eurreka server中获取信息
-    fetch-registry: false
+    fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8080/eureka/
 
   server:
-    enable-self-preservation: false
+    enable-self-preservation: true
+
+  instance:
+    instance-id: eureka1_instance_id
+
+spring:
+  application:
+    name: eureka
 
 
-
-management:
- endpoints:
-  web:
-    exposure:
-      include: "*"
-    base-path: /a
 
 info:
  phone: 18049638730

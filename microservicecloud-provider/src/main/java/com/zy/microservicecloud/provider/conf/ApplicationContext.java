@@ -8,19 +8,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationContext {
 
-    @Bean
-    public HystrixMetricsStreamServlet hystrixMetricsStreamServlet(){
-        return new HystrixMetricsStreamServlet();
-    }
+//    @Bean
+//    public HystrixMetricsStreamServlet hystrixMetricsStreamServlet(){
+//        return new HystrixMetricsStreamServlet();
+//    }
 
-    @Bean
-    public ServletRegistrationBean registration(HystrixMetricsStreamServlet servlet){
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean();
-        registrationBean.setServlet(servlet);
-        //是否启用该registrationBean
-        registrationBean.setEnabled(true);
-        registrationBean.addUrlMappings("/hystrix.stream");
-        return registrationBean;
-    }
+//    @Bean
+//    public ServletRegistrationBean registration(HystrixMetricsStreamServlet servlet){
+//        ServletRegistrationBean registrationBean = new ServletRegistrationBean();
+//        registrationBean.setServlet(servlet);
+//        //是否启用该registrationBean
+//        registrationBean.setEnabled(true);
+//        registrationBean.addUrlMappings("/hystrix.stream");
+//        return registrationBean;
+//    }
 
 }

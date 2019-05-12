@@ -1,8 +1,8 @@
 package com.zy.springcloud.microservicecloudfeign.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.zy.microservicecloud.api.DataTransferService;
-import com.zy.microservicecloud.entity.Employees;
+import com.zy.springcloud.microservicecloudfeign.api.DataTransferService;
+import com.zy.springcloud.microservicecloudfeign.entity.Employees;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +28,7 @@ public class DataController {
 
         List<Employees> employees = dataTransferService.getEmployeeById(id);
         if(employees.size() == 0){
-            Thread.sleep(3000);
+           Thread.sleep(3000);
         }
 
         return JSON.toJSONString(employees);

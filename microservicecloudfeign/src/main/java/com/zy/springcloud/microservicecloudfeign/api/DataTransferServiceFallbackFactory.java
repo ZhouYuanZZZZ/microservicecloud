@@ -1,4 +1,4 @@
-package com.zy.microservicecloud.api;
+package com.zy.springcloud.microservicecloudfeign.api;
 
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;

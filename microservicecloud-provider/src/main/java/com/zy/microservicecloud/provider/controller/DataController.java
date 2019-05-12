@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zy.microservicecloud.entity.Employees;
 import com.zy.microservicecloud.mapper.EmployeesMapper;
+import com.zy.microservicecloud.provider.Application;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,6 +26,7 @@ public class DataController {
 
     @RequestMapping(value = "/getEmployees")
     public ResponseEntity<String> getEmployees(){
+
         List<Employees> employees = employeesMapper.selectAll();
 
         HttpHeaders httpHeaders = new HttpHeaders();
