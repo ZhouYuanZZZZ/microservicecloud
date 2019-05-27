@@ -6,6 +6,14 @@ import java.util.Objects;
 
 
 @Entity
+
+@NamedStoredProcedureQuery(
+        name = "procedurep0",
+
+        //数据库储存过程名
+        procedureName = "test_procedure0"
+)
+
 @Table(name = "EMPLOYEES" ,schema = "hr")
 public class EmployeesEntity {
     private int employeeId;
