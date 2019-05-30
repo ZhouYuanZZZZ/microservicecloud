@@ -1,12 +1,11 @@
 package com.zy.springboot.test;
 
 import com.zy.springboot.jpa.*;
+import com.zy.utils.CollectionUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -25,6 +24,9 @@ public class TestJpa {
 
     @Resource
     private EmployeesRepository0 employeesRepository0;
+
+    @Resource
+    private EmployeesRepository1 employeesRepository1;
 
     @Resource
     private EntityManager entityManager;
@@ -113,6 +115,31 @@ public class TestJpa {
         System.out.println("当前第几页: "+page.getNumber());
         System.out.println("当前页面记录数: "+page.getNumberOfElements());
         System.out.println("当前页面数据: "+page.getContent());
+
+    }
+
+    @Test
+    public void test7(){
+
+        //查询条件数据对象
+        EmployeesEntity entity = new EmployeesEntity();
+        entity.setFirstName("k");
+
+        //创建匹配器 即如何使用查询条件
+        ExampleMatcher matching = ExampleMatcher.matching()
+        //采用以xxx开始模式进行匹配
+                .withMatcher("firstName", ExampleMatcher.GenericPropertyMatchers.startsWith())
+                //忽略不参与
+                .withIgnorePaths("employeeId");
+
+        //创建实例
+        Example<EmployeesEntity> ex = Example.of(entity, matching);
+
+
+        //执行查询
+        List<EmployeesEntity> all = employeesRepository1.findAll(ex);
+
+        CollectionUtil.showCollection(all);
 
 
     }
