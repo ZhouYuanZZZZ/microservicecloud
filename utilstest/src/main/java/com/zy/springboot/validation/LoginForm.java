@@ -10,7 +10,6 @@ import javax.validation.constraints.NotNull;
 public class LoginForm {
 
     @NotBlank(message = "用户名不能为空")
-    @Email
     private String username;
 
     @NotBlank(message = "密码不能为空")

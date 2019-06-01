@@ -7,6 +7,7 @@ import com.zy.springboot.jpa.EmployeesRepository0;
 import com.zy.springboot.validation.LoginForm;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -80,5 +81,26 @@ public class TestController {
         }
 
         return JSON.toJSONString(loginForm);
+    }
+
+    @RequestMapping(value = "test3",produces = "application/json;charset=UTF-8")
+    public String test3(@RequestBody @Valid LoginForm loginForm,BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()){
+            List<ObjectError> allErrors = bindingResult.getAllErrors();
+
+            List<String> errors = new ArrayList<>();
+            for(ObjectError error:allErrors){
+                errors.add(error.getDefaultMessage());
+            }
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("error",errors);
+
+            return jsonObject.toJSONString();
+        }
+
+        return JSON.toJSONString(loginForm);
+
     }
 }
